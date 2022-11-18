@@ -123,8 +123,8 @@ class CardAvatarContact extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return Container(
-      width: isMobile ? 40.w : 13.w,
-      height: isMobile ? 40.w : 13.w,
+      width: isMobile ? 40.w : 20.w,
+      height: isMobile ? 40.w : 20.w,
       decoration: const BoxDecoration(
           color: Colors.white12,
           shape: BoxShape.circle,

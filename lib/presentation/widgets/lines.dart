@@ -144,14 +144,14 @@ class CardServices extends StatelessWidget {
               Icon(
                 icon,
                 color: gradient[0],
-                size: isMobile ? 13.sp : 4.5.sp,
+                size: isMobile ? 13.sp : 14.5.sp,
               ),
               const SizedBox(width: 15),
               ShaderMask(
                   child: Text(
                     title,
                     style: TextStyle(
-                      fontSize: isMobile ? 13.sp : 4.5.sp,
+                      fontSize: isMobile ? 13.sp : 14.5.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -167,7 +167,7 @@ class CardServices extends StatelessWidget {
           Text(
             body,
             style: TextStyle(
-              fontSize: isMobile ? 13.sp : 3.sp,
+              fontSize: isMobile ? 13.sp : 13.sp,
               color: kColorGrey02,
               fontWeight: FontWeight.w200,
             ),
@@ -334,7 +334,7 @@ class _CardContactMeState extends State<CardContactMe> {
               },
               child: AnimatedContainer(
                 // margin: EdgeInsets.only(top: _isHover ? 4.0.h : 5.h),
-                width: 33.w,
+                width: isMobile ? 33.w : 20.w,
                 duration: const Duration(milliseconds: 300),
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
@@ -426,6 +426,7 @@ class CardBottomBar extends StatelessWidget {
                         ),
                       ),
                     ),
+                    if (!isMobile) SizedBox(width: 20.w),
                   ],
                 ),
                 const SizedBox(height: 20),

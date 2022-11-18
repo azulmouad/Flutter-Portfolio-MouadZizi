@@ -410,7 +410,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       child: Container(
                         margin: EdgeInsets.symmetric(vertical: 3.h),
                         width: isMobile ? 95.w : 80.w,
-                        height: isMobile ? 33.h : 40.h,
+                        height: isMobile ? 33.h : 45.h,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -507,7 +507,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: kColorGrey02,
-                        fontSize: 15.sp,
+                        fontSize: isMobile ? 15.sp : 14.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -527,7 +527,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         children: [
                           CardDivineLine(
                             width: 1.4,
-                            height: 7.h,
+                            height: isMobile ? 15.h : 7.h,
                             color: kColorGrey01.withOpacity(.3),
                           ),
                           Column(

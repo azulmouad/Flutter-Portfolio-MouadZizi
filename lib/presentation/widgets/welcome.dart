@@ -244,8 +244,8 @@ class _CardProfileState extends State<CardProfile> {
           //liser
           AnimatedPositioned(
             duration: duration,
-            top: _isAnimated ? 25.h : 28.h,
-            left: isMobile ? 5.w : 20.w,
+            top: _isAnimated ? 23.h : 26.h,
+            left: isMobile ? 5.w : 28.w,
             child: CardAnimateTile(
               label: "Azul Mouàd",
               hint: "Hi! I'm",
@@ -257,7 +257,7 @@ class _CardProfileState extends State<CardProfile> {
           AnimatedPositioned(
             duration: duration,
             top: _isAnimated ? 13.h : 15.h,
-            right: isMobile ? 10.w : 35.w,
+            right: isMobile ? 10.w : 30.w,
             child: CardAnimateTile(
               label: "Ui Designer 📐",
               hint: "",
@@ -269,7 +269,7 @@ class _CardProfileState extends State<CardProfile> {
           AnimatedPositioned(
             duration: duration,
             top: _isAnimated ? 35.h : 37.h,
-            right: isMobile ? 5.w : 40.w,
+            right: isMobile ? 5.w : 35.w,
             child: CardAnimateTile(
               label: "2D Artist  🎨",
               hint: "",

@@ -31,8 +31,8 @@ class _ContactScreenState extends State<ContactScreen> {
               child: Container(
                 // margin: EdgeInsets.only(top: isMobile ? 15.h : 10.h),
                 padding: EdgeInsets.symmetric(vertical: 7.h, horizontal: 15),
-                width: isMobile ? 80.w : 70.w,
-                height: 60.h,
+                width: isMobile ? 80.w : 60.w,
+                height: isMobile ? 60.h : 80.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white30,
@@ -62,7 +62,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           icon: Icon(
                             FontAwesomeIcons.linkedin,
                             color: Colors.white,
-                            size: 9.w,
+                            size: isMobile ? 9.w : 4.w,
                           ),
                           onPressed: () async {
                             await launchUrlString(kLinkedIn);
@@ -72,7 +72,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           icon: Icon(
                             FontAwesomeIcons.instagram,
                             color: Colors.white,
-                            size: 9.w,
+                            size: isMobile ? 9.w : 4.w,
                           ),
                           onPressed: () async {
                             await launchUrlString(kInsta);
@@ -82,7 +82,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           icon: Icon(
                             FontAwesomeIcons.facebook,
                             color: Colors.white,
-                            size: 9.w,
+                            size: isMobile ? 9.w : 4.w,
                           ),
                           onPressed: () async {
                             await launchUrlString(kFace);
@@ -92,7 +92,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           icon: Icon(
                             FontAwesomeIcons.store,
                             color: Colors.white,
-                            size: 9.w,
+                            size: isMobile ? 9.w : 4.w,
                           ),
                           onPressed: () async {
                             await launchUrlString(kCodeCanyon);
