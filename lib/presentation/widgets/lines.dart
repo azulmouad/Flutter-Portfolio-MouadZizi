@@ -127,8 +127,10 @@ class CardServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+      padding: EdgeInsets.symmetric(
+          vertical: isMobile ? 10 : 15, horizontal: isMobile ? 15 : 25),
       decoration: BoxDecoration(
         color: kPurple03,
         border: Border.all(color: kPurple02, width: .5),
@@ -142,14 +144,14 @@ class CardServices extends StatelessWidget {
               Icon(
                 icon,
                 color: gradient[0],
-                size: 4.5.sp,
+                size: isMobile ? 13.sp : 4.5.sp,
               ),
               const SizedBox(width: 15),
               ShaderMask(
                   child: Text(
                     title,
                     style: TextStyle(
-                      fontSize: 4.5.sp,
+                      fontSize: isMobile ? 13.sp : 4.5.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -161,11 +163,11 @@ class CardServices extends StatelessWidget {
                   }),
             ],
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: isMobile ? 5 : 18),
           Text(
             body,
             style: TextStyle(
-              fontSize: 3.sp,
+              fontSize: isMobile ? 13.sp : 3.sp,
               color: kColorGrey02,
               fontWeight: FontWeight.w200,
             ),
@@ -187,32 +189,32 @@ class CardMyProject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.only(bottom: bottom ?? 15),
-        child: InkWell(
-          onTap: () {
-            //print(" ink click");
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
+    return Container(
+      margin: EdgeInsets.only(bottom: bottom ?? 15),
+      child: InkWell(
+        onTap: () {
+          //print(" ink click");
+        },
+        child: HoverCard(
+          builder: (context, hovering) {
+            return Image(
+              image: AssetImage(image),
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            );
           },
-          child: HoverCard(
-            builder: (context, hovering) {
-              return Image(
-                image: AssetImage(image),
-                width: double.infinity,
-                height: double.infinity,
-              );
-            },
-            depth: 1,
-            depthColor: Colors.transparent,
-            onTap: () {
-              // print("click");
-              onTap();
-            },
-            shadow: const BoxShadow(
-              color: Colors.transparent,
-              blurRadius: 5,
-              spreadRadius: -30,
-            ),
+          depth: 1,
+          depthColor: Colors.transparent,
+          onTap: () {
+            // print("click");
+            onTap();
+          },
+          shadow: const BoxShadow(
+            color: Colors.transparent,
+            blurRadius: 5,
+            spreadRadius: 1,
           ),
         ),
       ),
@@ -241,6 +243,7 @@ class _CardInfoMeState extends State<CardInfoMe> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return Expanded(
       child: InkWell(
         onTap: () {},
@@ -250,12 +253,13 @@ class _CardInfoMeState extends State<CardInfoMe> {
           });
         },
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 8),
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+          margin: EdgeInsets.symmetric(horizontal: isMobile ? 5 : 8),
+          padding: EdgeInsets.symmetric(
+              vertical: isMobile ? 10 : 15, horizontal: isMobile ? 15 : 25),
           //  width: double.infinity,
           decoration: BoxDecoration(
               color: kColorBackground02,
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(5),
               boxShadow: _isHover
                   ? [
                       BoxShadow(
@@ -273,7 +277,7 @@ class _CardInfoMeState extends State<CardInfoMe> {
                       widget.label,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 6.3.sp,
+                        fontSize: isMobile ? 14.sp : 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -283,12 +287,12 @@ class _CardInfoMeState extends State<CardInfoMe> {
                           stops: const [-0.2, 0.6]).createShader(rect);
                     }),
               ),
-              const SizedBox(height: 18),
+              SizedBox(height: isMobile ? 5 : 18),
               Text(
                 widget.body,
                 style: TextStyle(
                   color: kColorGrey01,
-                  fontSize: 3.sp,
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -312,7 +316,7 @@ class _CardContactMeState extends State<CardContactMe> {
 
   @override
   Widget build(BuildContext context) {
-    //SizedBox(height: 5.h),
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return SizedBox(
       height: 15.h,
       child: Column(
@@ -330,7 +334,7 @@ class _CardContactMeState extends State<CardContactMe> {
               },
               child: AnimatedContainer(
                 // margin: EdgeInsets.only(top: _isHover ? 4.0.h : 5.h),
-                width: 13.w,
+                width: 33.w,
                 duration: const Duration(milliseconds: 300),
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
@@ -353,14 +357,14 @@ class _CardContactMeState extends State<CardContactMe> {
                         'Contact me',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 4.5.sp,
+                          fontSize: 14.5.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(width: 5),
                       Icon(
                         FontAwesomeIcons.chevronRight,
-                        size: 3.sp,
+                        size: 13.sp,
                         color: Colors.white,
                       ),
                     ],
@@ -380,6 +384,7 @@ class CardBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return SizedBox(
       width: 100.w,
       child: Column(
@@ -394,32 +399,38 @@ class CardBottomBar extends StatelessWidget {
               vertical: 25,
               horizontal: 40,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
               children: [
-                Text(
-                  'Front-End Developer,\nUI Designer',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 2.7.sp,
-                  ),
-                ),
-                InkWell(
-                  onTap: () async {
-                    await launchUrlString("https://largely.ma/");
-                  },
-                  child: Text(
-                    '©2022 Largely',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 2.7.sp,
-                    ),
-                  ),
-                ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Front-End Developer,UI Designer',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12.7.sp,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        // await launchUrlString("https://largely.ma/");
+                      },
+                      child: Text(
+                        '©${DateTime.now().year} Azul Mouad'.toUpperCase(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12.7.sp,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CardSocialMedia(
                       label: "Github",
@@ -484,7 +495,7 @@ class _CardSocialMediaState extends State<CardSocialMedia> {
           style: TextStyle(
             color: _isHover ? kPurple01 : Colors.white,
             fontWeight: FontWeight.w500,
-            fontSize: 2.7.sp,
+            fontSize: 12.5.sp,
           ),
         ),
       ),

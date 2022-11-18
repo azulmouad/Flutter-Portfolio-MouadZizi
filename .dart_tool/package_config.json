@@ -296,14 +296,14 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "scrollable_positioned_list",
-      "rootUri": "file:///Users/mac/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/scrollable_positioned_list-0.3.5",
+      "name": "responsive_sizer",
+      "rootUri": "file:///Users/mac/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/responsive_sizer-3.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
-      "name": "sizer",
-      "rootUri": "file:///Users/mac/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/sizer-2.0.15",
+      "name": "scrollable_positioned_list",
+      "rootUri": "file:///Users/mac/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/scrollable_positioned_list-0.3.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -446,7 +446,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-11-18T15:02:49.794521Z",
+  "generated": "2022-11-18T15:33:39.032058Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

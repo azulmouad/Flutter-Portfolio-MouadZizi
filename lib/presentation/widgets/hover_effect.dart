@@ -185,7 +185,7 @@ class HoverCardState extends State<HoverCard>
                   });
                 },
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(5),
                   child: Container(
                     color: widget.depthColor,
                     child: Stack(
@@ -205,7 +205,7 @@ class HoverCardState extends State<HoverCard>
                                   0.0),
                             alignment: FractionalOffset.center,
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(5),
                               child: widget.builder(context, isHover),
                             ),
                           ),

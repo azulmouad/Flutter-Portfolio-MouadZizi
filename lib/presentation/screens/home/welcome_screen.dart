@@ -22,6 +22,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return Scaffold(
       backgroundColor: kColorBackground,
       body: Scaffold(
@@ -40,7 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ///PROFILE
                     SizedBox(
                       width: 100.w,
-                      height: 80.h,
+                      height: isMobile ? 65.h : 80.h,
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
@@ -87,8 +88,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                     ///5
                     Center(
-                        child: AnimatedTextCard(
-                            label: "Is how it works.", size: 16.sp)),
+                      child: AnimatedTextCard(
+                        label: "Is how it works.",
+                        size: 18.sp,
+                      ),
+                    ),
 
                     ///6
                     const SizedBox(height: 10),
@@ -102,14 +106,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: kColorGrey01,
-                          fontSize: 5.sp,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
 
                     ///8
-                    SizedBox(height: 5.h),
+                    SizedBox(height: 3.h),
 
                     ///9
                     ///Lines
@@ -119,24 +123,25 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ///My Services
                     Center(
                       child: SizedBox(
-                        width: 80.w,
+                        width: isMobile ? 95.w : 80.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: isMobile ? 5 : 10),
                               child: Text(
                                 "My services",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: kPurple02,
-                                  fontSize: 6.5.sp,
+                                  fontSize: 17.sp,
                                   fontWeight: FontWeight.w900,
                                 ),
                               ),
                             ),
                             Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 ///Texts
                                 Expanded(
@@ -149,13 +154,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 8.sp,
+                                          fontSize: 17.sp,
                                           fontWeight: FontWeight.w900,
                                         ),
                                       ),
                                       const Image(
                                         image: AssetImage(
-                                            'assets/images/image_1.png'),
+                                          'assets/images/image_1.png',
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -164,7 +170,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 ///Cards
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsets.only(left: 10.w),
+                                    padding: EdgeInsets.only(
+                                        left: isMobile ? 2.w : 10.w),
                                     child: Column(
                                       children: [
                                         const CardServices(
@@ -199,7 +206,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                             Color(0xFFeecda3),
                                           ],
                                         ),
-                                        SizedBox(height: 5.h),
+                                        SizedBox(height: isMobile ? 3.h : 5.h),
                                       ],
                                     ),
                                   ),
@@ -224,7 +231,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: kChibi02,
-                          fontSize: 6.sp,
+                          fontSize: 17.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -241,7 +248,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             text: "A selection of my best projects.\n\n",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 10.sp,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w900,
                             ),
                           ),
@@ -249,7 +256,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             text: "(including this website)",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 3.sp,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -262,62 +269,56 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                     ///15
                     ///Projects
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 1.w),
-                      width: 97.w,
-                      height: 33.h,
-                      child: Row(
-                        children: [
-                          CardMyProject(
-                            image: "assets/images/app_4.png",
-                            onTap: () async {
-                              await launchUrlString(kApp_1);
-                            },
-                          ),
-                          CardMyProject(
-                            image: "assets/images/app_1.png",
-                            onTap: () async {
-                              await launchUrlString(kApp_2);
-                            },
-                          ),
-                          CardMyProject(
-                            image: "assets/images/app_3.png",
-                            onTap: () async {
-                              await launchUrlString(kApp_3);
-                            },
-                          ),
-                        ],
+                    GridView(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      shrinkWrap: true,
+                      physics: const ScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: isMobile ? 1 : 3,
+                        childAspectRatio: 1.8,
                       ),
+                      children: [
+                        CardMyProject(
+                          image: "assets/images/app_4.png",
+                          onTap: () async {
+                            await launchUrlString(kApp_1);
+                          },
+                        ),
+                        CardMyProject(
+                          image: "assets/images/app_1.png",
+                          onTap: () async {
+                            await launchUrlString(kApp_2);
+                          },
+                        ),
+                        CardMyProject(
+                          image: "assets/images/app_3.png",
+                          onTap: () async {
+                            await launchUrlString(kApp_3);
+                          },
+                        ),
+                        CardMyProject(
+                          image: "assets/images/app_2.png",
+                          onTap: () async {
+                            await launchUrlString(kApp_4);
+                          },
+                        ),
+                        CardMyProject(
+                          image: "assets/images/app_5.png",
+                          onTap: () async {
+                            await launchUrlString(kApp_5);
+                          },
+                        ),
+                        CardMyProject(
+                          image: "assets/images/app_6.png",
+                          onTap: () async {
+                            await launchUrlString(kApp_6);
+                          },
+                        ),
+                      ],
                     ),
 
                     ///16
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 1.w),
-                      width: 97.w,
-                      height: 33.h,
-                      child: Row(
-                        children: [
-                          CardMyProject(
-                            image: "assets/images/app_2.png",
-                            onTap: () async {
-                              await launchUrlString(kApp_4);
-                            },
-                          ),
-                          CardMyProject(
-                            image: "assets/images/app_5.png",
-                            onTap: () async {
-                              await launchUrlString(kApp_5);
-                            },
-                          ),
-                          CardMyProject(
-                            image: "assets/images/app_6.png",
-                            onTap: () async {
-                              await launchUrlString(kApp_6);
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
+                    const SizedBox(),
 
                     ///17
                     SizedBox(height: 4.h),
@@ -331,7 +332,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: kColorGrey01,
-                          fontSize: 5.sp,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -348,7 +349,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             child: Text(
                               "Visit my Github",
                               style: TextStyle(
-                                fontSize: 4.5.sp,
+                                fontSize: 15.sp,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -379,7 +380,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: kColorOrange02,
-                        fontSize: 5.sp,
+                        fontSize: 17.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -392,7 +393,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 10.sp,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
@@ -402,8 +403,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Center(
                       child: Container(
                         margin: EdgeInsets.symmetric(vertical: 3.h),
-                        width: 80.w,
-                        height: 40.h,
+                        width: isMobile ? 95.w : 80.w,
+                        height: isMobile ? 33.h : 40.h,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -485,7 +486,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 7.sp,
+                          fontSize: 17.sp,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
@@ -500,7 +501,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: kColorGrey02,
-                        fontSize: 5.sp,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -513,20 +514,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ///Contact
                     Container(
                       width: 100.w,
-                      height: 80.h,
+                      height: isMobile ? 55.h : 80.h,
                       color: kColorBackground02,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CardDivineLine(
                             width: 1.4,
-                            height: 12.h,
+                            height: 7.h,
                             color: kColorGrey01.withOpacity(.3),
                           ),
                           Column(
                             children: [
                               AnimatedTextCard(
-                                  label: "Let's work together!", size: 15.sp),
+                                label: "Let's work together!",
+                                size: 17.sp,
+                              ),
                               const CardContactMe(),
                             ],
                           ),

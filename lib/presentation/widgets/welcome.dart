@@ -7,6 +7,8 @@ class CardBarHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
+    final paddingTop = MediaQuery.of(context).padding.top;
     return ClipRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(
@@ -17,7 +19,12 @@ class CardBarHome extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           width: 100.w,
-          height: 7.h,
+          height: 7.h + (isMobile ? paddingTop : 0),
+          padding: EdgeInsets.only(
+            top: isMobile ? paddingTop : 0,
+            left: isMobile ? 20 : 0,
+            right: isMobile ? 20 : 0,
+          ),
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -27,103 +34,82 @@ class CardBarHome extends StatelessWidget {
             ],
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: isMobile
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.spaceAround,
             children: [
-              const SizedBox(),
+              if (!isMobile) const SizedBox(),
               Text(
-                'Azul Mouad Zizi',
+                'Mouad Zizi'.toUpperCase(),
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 4.sp,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.w900,
                 ),
               ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      onChanged(0);
-                    },
-                    child: Text(
-                      'Profile',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+              if (!isMobile)
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        onChanged(0);
+                      },
+                      child: Text(
+                        'Profile',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      onChanged(8);
-                    },
-                    child: Text(
-                      'Services',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        onChanged(8);
+                      },
+                      child: Text(
+                        'Services',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      onChanged(10);
-                    },
-                    child: Text(
-                      'Projects',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        onChanged(10);
+                      },
+                      child: Text(
+                        'Projects',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      onChanged(19);
-                    },
-                    child: Text(
-                      'About me',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        onChanged(19);
+                      },
+                      child: Text(
+                        'About me',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      onChanged(26);
-                    },
-                    child: Text(
-                      'Contact',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        onChanged(26);
+                      },
+                      child: Text(
+                        'Contact',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
               TextButton.icon(
                 onPressed: () => Get.toNamed('/contact'),
                 icon: Text(
                   'Work request',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 2.5.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: kStyleBarText,
                 ),
                 label: Icon(
                   FontAwesomeIcons.chevronRight,
-                  size: 2.3.sp,
+                  size: (kStyleBarText.fontSize! - 3),
                   color: Colors.white,
                 ),
               ),
-              const SizedBox(),
+              if (!isMobile) const SizedBox(),
             ],
           ),
         ),
@@ -137,12 +123,13 @@ class CardAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 17.w,
-          height: 17.w,
+          width: isMobile ? 50.w : 17.w,
+          height: isMobile ? 50.w : 17.w,
           decoration: BoxDecoration(
             color: Colors.transparent,
             borderRadius: BorderRadius.circular(300),
@@ -150,8 +137,8 @@ class CardAvatar extends StatelessWidget {
           ),
           child: Center(
             child: Container(
-              width: 16.5.w,
-              height: 16.5.w,
+              width: isMobile ? 48.w : 16.5.w,
+              height: isMobile ? 48.w : 16.5.w,
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(300),
@@ -178,16 +165,16 @@ class CardAvatar extends StatelessWidget {
           'Flutter / Front-End Developer',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 11.sp,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w900,
           ),
         ),
-        SizedBox(height: 1.sp),
+        SizedBox(height: 1.h),
         Text(
           'Based in Marrakech, Morocco.',
           style: TextStyle(
             color: kColorGrey01,
-            fontSize: 5.sp,
+            fontSize: 15.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -198,13 +185,13 @@ class CardAvatar extends StatelessWidget {
             'Let\'s work!',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 3.3.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w400,
             ),
           ),
           label: Icon(
             FontAwesomeIcons.chevronRight,
-            size: 2.4.sp,
+            size: 10.sp,
             color: Colors.white,
           ),
         ),
@@ -246,9 +233,10 @@ class _CardProfileState extends State<CardProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return SizedBox(
       width: 100.w,
-      height: 80.h,
+      height: 70.h,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -256,12 +244,12 @@ class _CardProfileState extends State<CardProfile> {
           //liser
           AnimatedPositioned(
             duration: duration,
-            top: _isAnimated ? 23.h : 25.h,
-            left: 25.w,
+            top: _isAnimated ? 25.h : 28.h,
+            left: isMobile ? 5.w : 20.w,
             child: CardAnimateTile(
               label: "Azul Mouàd",
               hint: "Hi! I'm",
-              sizeText: 4.5.sp,
+              sizeText: 15.sp,
               isHi: true,
             ),
           ),
@@ -269,23 +257,23 @@ class _CardProfileState extends State<CardProfile> {
           AnimatedPositioned(
             duration: duration,
             top: _isAnimated ? 13.h : 15.h,
-            right: 30.w,
+            right: isMobile ? 10.w : 35.w,
             child: CardAnimateTile(
               label: "Ui Designer 📐",
               hint: "",
-              sizeText: 3.5.sp,
+              sizeText: 15.sp,
               color: kColorDark,
             ),
           ),
           //center
           AnimatedPositioned(
             duration: duration,
-            top: _isAnimated ? 36.h : 38.h,
-            right: 40.w,
+            top: _isAnimated ? 35.h : 37.h,
+            right: isMobile ? 5.w : 40.w,
             child: CardAnimateTile(
               label: "2D Artist  🎨",
               hint: "",
-              sizeText: 4.sp,
+              sizeText: 14.sp,
             ),
           ),
         ],
@@ -420,7 +408,7 @@ class CardAnimateTile extends StatelessWidget {
                         hint,
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 3.sp,
+                          fontSize: 13.sp,
                         ),
                       ),
                     if (hint.isNotEmpty) const SizedBox(height: 5),

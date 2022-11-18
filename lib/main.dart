@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/helpers/colors.dart';
 import 'package:portfolio/presentation/screens/screens.dart';
-import 'package:sizer/sizer.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //BarEventsCubit
-    return Sizer(builder: (context, orientation, deviceType) {
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
       return GetMaterialApp(
         title: 'Mouad zizi',
         debugShowCheckedModeBanner: false,

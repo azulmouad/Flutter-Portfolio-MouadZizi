@@ -345,17 +345,17 @@
             </list>
           </value>
         </entry>
+        <entry key="responsive_sizer">
+          <value>
+            <list>
+              <option value="$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/responsive_sizer-3.1.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="scrollable_positioned_list">
           <value>
             <list>
               <option value="$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/scrollable_positioned_list-0.3.5/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="sizer">
-          <value>
-            <list>
-              <option value="$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/sizer-2.0.15/lib" />
             </list>
           </value>
         </entry>
@@ -562,8 +562,8 @@
       <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/lib" />
       <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.4/lib" />
       <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.2/lib" />
+      <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/responsive_sizer-3.1.1/lib" />
       <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/scrollable_positioned_list-0.3.5/lib" />
-      <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/sizer-2.0.15/lib" />
       <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.9.0/lib" />
       <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/lib" />
       <root url="file://$USER_HOME$/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/lib" />
