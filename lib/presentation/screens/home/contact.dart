@@ -10,9 +10,10 @@ class ContactScreen extends StatefulWidget {
 class _ContactScreenState extends State<ContactScreen> {
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return Scaffold(
       body: Stack(
-        alignment: Alignment.topCenter,
+        alignment: Alignment.center,
         children: [
           //animated
           SizedBox(
@@ -28,9 +29,9 @@ class _ContactScreenState extends State<ContactScreen> {
                 sigmaY: 5.0,
               ),
               child: Container(
-                margin: EdgeInsets.only(top: 10.h),
-                padding: EdgeInsets.symmetric(vertical: 7.h, horizontal: 5.w),
-                width: 70.w,
+                // margin: EdgeInsets.only(top: isMobile ? 15.h : 10.h),
+                padding: EdgeInsets.symmetric(vertical: 7.h, horizontal: 15),
+                width: isMobile ? 80.w : 70.w,
                 height: 60.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -49,7 +50,7 @@ class _ContactScreenState extends State<ContactScreen> {
                         'moad.devloper@gmail.com',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 7.sp,
+                          fontSize: 17.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -59,9 +60,19 @@ class _ContactScreenState extends State<ContactScreen> {
                       children: [
                         IconButton(
                           icon: Icon(
+                            FontAwesomeIcons.linkedin,
+                            color: Colors.white,
+                            size: 9.w,
+                          ),
+                          onPressed: () async {
+                            await launchUrlString(kLinkedIn);
+                          },
+                        ),
+                        IconButton(
+                          icon: Icon(
                             FontAwesomeIcons.instagram,
                             color: Colors.white,
-                            size: 10.sp,
+                            size: 9.w,
                           ),
                           onPressed: () async {
                             await launchUrlString(kInsta);
@@ -71,7 +82,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           icon: Icon(
                             FontAwesomeIcons.facebook,
                             color: Colors.white,
-                            size: 10.sp,
+                            size: 9.w,
                           ),
                           onPressed: () async {
                             await launchUrlString(kFace);
@@ -81,7 +92,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           icon: Icon(
                             FontAwesomeIcons.store,
                             color: Colors.white,
-                            size: 10.sp,
+                            size: 9.w,
                           ),
                           onPressed: () async {
                             await launchUrlString(kCodeCanyon);
@@ -96,7 +107,10 @@ class _ContactScreenState extends State<ContactScreen> {
           ),
 
           //bar top
-          const CardBarContact(),
+          const Positioned(
+            top: 0,
+            child: CardBarContact(),
+          ),
         ],
       ),
     );

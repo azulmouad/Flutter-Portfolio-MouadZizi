@@ -7,6 +7,8 @@ class CardBarContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
+    final paddingTop = MediaQuery.of(context).padding.top;
     return ClipRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(
@@ -17,7 +19,12 @@ class CardBarContact extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           width: 100.w,
-          height: 7.h,
+          height: 7.h + (isMobile ? paddingTop : 0),
+          padding: EdgeInsets.only(
+            top: isMobile ? paddingTop : 0,
+            left: isMobile ? 15 : 0,
+            right: isMobile ? 15 : 0,
+          ),
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -27,101 +34,80 @@ class CardBarContact extends StatelessWidget {
             ],
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: isMobile
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.spaceAround,
             children: [
-              const SizedBox(),
+              if (!isMobile) const SizedBox(),
               Text(
                 'Azul Mouad Zizi',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 4.sp,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      goHome();
-                    },
-                    child: Text(
-                      'Profile',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+              if (!isMobile)
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        goHome();
+                      },
+                      child: Text(
+                        'Profile',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      goHome();
-                    },
-                    child: Text(
-                      'Services',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        goHome();
+                      },
+                      child: Text(
+                        'Services',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      goHome();
-                    },
-                    child: Text(
-                      'Projects',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        goHome();
+                      },
+                      child: Text(
+                        'Projects',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      goHome();
-                    },
-                    child: Text(
-                      'About me',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        goHome();
+                      },
+                      child: Text(
+                        'About me',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: null,
-                    child: Text(
-                      'Contact',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 2.5.sp,
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: null,
+                      child: Text(
+                        'Contact',
+                        style: kStyleBarText,
                       ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
               TextButton.icon(
                 onPressed: () => goHome(),
                 icon: Text(
                   'Back to main page',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 2.5.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: kStyleBarText,
                 ),
                 label: Icon(
                   FontAwesomeIcons.chevronRight,
-                  size: 2.3.sp,
+                  size: kStyleBarText.fontSize! - 3,
                   color: Colors.white,
                 ),
               ),
-              const SizedBox(),
+              if (!isMobile) const SizedBox(),
             ],
           ),
         ),
@@ -135,9 +121,10 @@ class CardAvatarContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return Container(
-      width: 13.w,
-      height: 13.w,
+      width: isMobile ? 40.w : 13.w,
+      height: isMobile ? 40.w : 13.w,
       decoration: const BoxDecoration(
           color: Colors.white12,
           shape: BoxShape.circle,

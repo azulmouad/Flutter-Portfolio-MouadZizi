@@ -314,6 +314,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             await launchUrlString(kApp_6);
                           },
                         ),
+                        CardMyProject(
+                          image: "assets/images/app_7.png",
+                          onTap: () async {
+                            await launchUrlString(kApp_7);
+                          },
+                        ),
                       ],
                     ),
 

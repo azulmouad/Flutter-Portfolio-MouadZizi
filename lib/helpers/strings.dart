@@ -10,9 +10,12 @@ const String kApp_5 =
     "https://codecanyon.net/item/jhe-woocommerce-flutter-app-andorid-ios-/33674135";
 const String kApp_6 =
     "https://codecanyon.net/item/azul-woocommerce-shopify-theme-ui-kit/30393337";
+const String kApp_7 =
+    "https://codecanyon.net/item/pitches-sport-application-ui-kit-livescore-livematches-news-videos-/38544804";
 
 const String kGithub = "https://github.com/azulmouad/";
 const String kEmail = "mailto:moad.devloper@gmail.com";
 const String kFace = "https://web.facebook.com/mddzizi/";
 const String kInsta = "https://www.instagram.com/azul_mouad/";
 const String kCodeCanyon = "https://codecanyon.net/user/azul_mouad/";
+const String kLinkedIn = "https://www.linkedin.com/in/mouad-azul-8061a7176/";

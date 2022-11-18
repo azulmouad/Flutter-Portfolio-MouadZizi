@@ -395,9 +395,9 @@ class CardBottomBar extends StatelessWidget {
             height: 1.3,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(
+            padding: EdgeInsets.symmetric(
               vertical: 25,
-              horizontal: 40,
+              horizontal: isMobile ? 20 : 40,
             ),
             child: Column(
               children: [
@@ -432,6 +432,12 @@ class CardBottomBar extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    CardSocialMedia(
+                      label: "LinkedIn",
+                      onTap: () async {
+                        await launchUrlString(kLinkedIn);
+                      },
+                    ),
                     CardSocialMedia(
                       label: "Github",
                       onTap: () async {
