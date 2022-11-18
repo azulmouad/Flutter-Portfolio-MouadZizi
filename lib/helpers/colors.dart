@@ -19,7 +19,7 @@ Color kChibi02 = kChibi.withOpacity(.6);
 List<Color> colorizeColors = [kColorOrange, kPurple01, kChibi];
 
 List<BoxShadow> kGradientCirclePic1 = [
-  BoxShadow(
+  const BoxShadow(
     color: Colors.white,
     blurRadius: 2,
     offset: Offset(0, 0),
@@ -27,33 +27,33 @@ List<BoxShadow> kGradientCirclePic1 = [
   BoxShadow(
     color: kChibi.withOpacity(.3),
     blurRadius: 30,
-    offset: Offset(30, 30),
+    offset: const Offset(30, 30),
   ),
   BoxShadow(
     color: kColorOrange.withOpacity(.3),
     blurRadius: 30,
-    offset: Offset(1, 1),
+    offset: const Offset(1, 1),
   ),
   BoxShadow(
     color: kPurple01.withOpacity(.3),
     blurRadius: 30,
-    offset: Offset(-30, -30),
+    offset: const Offset(-30, -30),
   ),
 ];
 List<BoxShadow> kGradientCirclePic2 = [
   BoxShadow(
     color: kChibi.withOpacity(.3),
     blurRadius: 5,
-    offset: Offset(5, 5),
+    offset: const Offset(5, 5),
   ),
   BoxShadow(
     color: kColorOrange.withOpacity(.3),
     blurRadius: 5,
-    offset: Offset(1, 1),
+    offset: const Offset(1, 1),
   ),
   BoxShadow(
     color: kPurple01.withOpacity(.3),
     blurRadius: 5,
-    offset: Offset(-1, -1),
+    offset: const Offset(-1, -1),
   ),
 ];

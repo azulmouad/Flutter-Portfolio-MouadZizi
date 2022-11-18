@@ -5,11 +5,11 @@ class HoverCard extends StatefulWidget {
   final double depth;
   final Color depthColor;
   final BoxShadow shadow;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   const HoverCard({
-    Key key,
-    @required this.builder,
+    Key? key,
+    required this.builder,
     this.onTap,
     this.depth = 0,
     this.depthColor = const Color(0xFF424242),
@@ -31,8 +31,8 @@ class HoverCardState extends State<HoverCard>
   double localY = 0;
   bool defaultPosition = true;
   bool isHover = false;
-  AnimationController animationController;
-  Animation<FractionalOffset> animation;
+  late AnimationController animationController;
+  late Animation<FractionalOffset?> animation;
 
   @override
   void initState() {
@@ -73,13 +73,13 @@ class HoverCardState extends State<HoverCard>
 
   void _updatePosition() {
     setState(() {
-      localX = animation.value.dx;
-      localY = animation.value.dy;
+      localX = animation.value!.dx;
+      localY = animation.value!.dy;
     });
   }
 
   void reset(Size size) {
-    _resetAnimation(size, Offset(0, 0));
+    _resetAnimation(size, const Offset(0, 0));
     _updatePosition();
   }
 
@@ -140,17 +140,19 @@ class HoverCardState extends State<HoverCard>
               onTap: widget.onTap,
               child: MouseRegion(
                 onEnter: (_) {
-                  if (mounted)
+                  if (mounted) {
                     setState(() {
                       isHover = true;
                       defaultPosition = false;
                     });
+                  }
                 },
                 onExit: (_) {
-                  if (mounted)
+                  if (mounted) {
                     setState(() {
                       isHover = false;
                     });
+                  }
                   _resetAnimation(size, Offset(localX, localY));
                   animationController.forward();
                 },
@@ -218,7 +220,7 @@ class HoverCardState extends State<HoverCard>
                               ),
                               child: AnimatedOpacity(
                                 opacity: defaultPosition ? 0 : 0.99,
-                                duration: Duration(milliseconds: 500),
+                                duration: const Duration(milliseconds: 500),
                                 curve: Curves.decelerate,
                                 child: Container(
                                   height: 100,

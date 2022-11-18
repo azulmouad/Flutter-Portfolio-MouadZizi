@@ -1,7 +1,7 @@
 part of '../screens.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({Key key}) : super(key: key);
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
@@ -271,19 +271,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           CardMyProject(
                             image: "assets/images/app_4.png",
                             onTap: () async {
-                              await launch(kApp_1);
+                              await launchUrlString(kApp_1);
                             },
                           ),
                           CardMyProject(
                             image: "assets/images/app_1.png",
                             onTap: () async {
-                              await launch(kApp_2);
+                              await launchUrlString(kApp_2);
                             },
                           ),
                           CardMyProject(
                             image: "assets/images/app_3.png",
                             onTap: () async {
-                              await launch(kApp_3);
+                              await launchUrlString(kApp_3);
                             },
                           ),
                         ],
@@ -300,19 +300,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           CardMyProject(
                             image: "assets/images/app_2.png",
                             onTap: () async {
-                              await launch(kApp_4);
+                              await launchUrlString(kApp_4);
                             },
                           ),
                           CardMyProject(
                             image: "assets/images/app_5.png",
                             onTap: () async {
-                              await launch(kApp_5);
+                              await launchUrlString(kApp_5);
                             },
                           ),
                           CardMyProject(
                             image: "assets/images/app_6.png",
                             onTap: () async {
-                              await launch(kApp_6);
+                              await launchUrlString(kApp_6);
                             },
                           ),
                         ],
@@ -342,7 +342,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Center(
                       child: InkWell(
                         onTap: () async {
-                          await launch(kGithub);
+                          await launchUrlString(kGithub);
                         },
                         child: ShaderMask(
                             child: Text(

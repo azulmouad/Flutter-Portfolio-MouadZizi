@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
 class CardLinesType1 extends StatelessWidget {
-  const CardLinesType1({Key key}) : super(key: key);
+  const CardLinesType1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class CardLinesType1 extends StatelessWidget {
               children: const [
                 Expanded(
                   child: CardDivineLine(
-                    width: null,
+                    width: 0,
                     height: 1.8,
                     color: kPurple02,
                   ),
@@ -45,7 +45,7 @@ class CardLinesType1 extends StatelessWidget {
 }
 
 class CardLinesType2 extends StatelessWidget {
-  const CardLinesType2({Key key}) : super(key: key);
+  const CardLinesType2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -91,10 +91,10 @@ class CardLinesType2 extends StatelessWidget {
 
 class CardDivineLine extends StatelessWidget {
   const CardDivineLine(
-      {Key key,
-      @required this.width,
-      @required this.height,
-      @required this.color})
+      {Key? key,
+      required this.width,
+      required this.height,
+      required this.color})
       : super(key: key);
 
   final double width;
@@ -113,11 +113,11 @@ class CardDivineLine extends StatelessWidget {
 
 class CardServices extends StatelessWidget {
   const CardServices(
-      {Key key,
-      @required this.title,
-      @required this.icon,
-      @required this.gradient,
-      @required this.body})
+      {Key? key,
+      required this.title,
+      required this.icon,
+      required this.gradient,
+      required this.body})
       : super(key: key);
 
   final String title;
@@ -155,8 +155,9 @@ class CardServices extends StatelessWidget {
                     ),
                   ),
                   shaderCallback: (rect) {
-                    return LinearGradient(colors: gradient, stops: [-0.4, 0.5])
-                        .createShader(rect);
+                    return LinearGradient(
+                        colors: gradient,
+                        stops: const [-0.4, 0.5]).createShader(rect);
                   }),
             ],
           ),
@@ -177,11 +178,11 @@ class CardServices extends StatelessWidget {
 
 class CardMyProject extends StatelessWidget {
   const CardMyProject(
-      {Key key, @required this.image, this.bottom, @required this.onTap})
+      {Key? key, required this.image, this.bottom, required this.onTap})
       : super(key: key);
 
   final String image;
-  final double bottom;
+  final double? bottom;
   final VoidCallback onTap;
 
   @override
@@ -191,7 +192,7 @@ class CardMyProject extends StatelessWidget {
         margin: EdgeInsets.only(bottom: bottom ?? 15),
         child: InkWell(
           onTap: () {
-            print(" ink click");
+            //print(" ink click");
           },
           child: HoverCard(
             builder: (context, hovering) {
@@ -204,7 +205,7 @@ class CardMyProject extends StatelessWidget {
             depth: 1,
             depthColor: Colors.transparent,
             onTap: () {
-              print("click");
+              // print("click");
               onTap();
             },
             shadow: const BoxShadow(
@@ -221,10 +222,10 @@ class CardMyProject extends StatelessWidget {
 
 class CardInfoMe extends StatefulWidget {
   const CardInfoMe(
-      {Key key,
-      @required this.label,
-      @required this.body,
-      @required this.gradient})
+      {Key? key,
+      required this.label,
+      required this.body,
+      required this.gradient})
       : super(key: key);
 
   final String label;
@@ -260,7 +261,7 @@ class _CardInfoMeState extends State<CardInfoMe> {
                       BoxShadow(
                           color: widget.gradient[0].withOpacity(.5),
                           blurRadius: 35,
-                          offset: Offset(0, 10)),
+                          offset: const Offset(0, 10)),
                     ]
                   : null),
           child: Column(
@@ -279,7 +280,7 @@ class _CardInfoMeState extends State<CardInfoMe> {
                     shaderCallback: (rect) {
                       return LinearGradient(
                           colors: widget.gradient,
-                          stops: [-0.2, 0.6]).createShader(rect);
+                          stops: const [-0.2, 0.6]).createShader(rect);
                     }),
               ),
               const SizedBox(height: 18),
@@ -300,7 +301,7 @@ class _CardInfoMeState extends State<CardInfoMe> {
 }
 
 class CardContactMe extends StatefulWidget {
-  const CardContactMe({Key key}) : super(key: key);
+  const CardContactMe({Key? key}) : super(key: key);
 
   @override
   State<CardContactMe> createState() => _CardContactMeState();
@@ -375,7 +376,7 @@ class _CardContactMeState extends State<CardContactMe> {
 }
 
 class CardBottomBar extends StatelessWidget {
-  const CardBottomBar({Key key}) : super(key: key);
+  const CardBottomBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -407,7 +408,7 @@ class CardBottomBar extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () async {
-                    await launch("https://largely.ma/");
+                    await launchUrlString("https://largely.ma/");
                   },
                   child: Text(
                     '©2022 Largely',
@@ -423,25 +424,25 @@ class CardBottomBar extends StatelessWidget {
                     CardSocialMedia(
                       label: "Github",
                       onTap: () async {
-                        await launch(kGithub);
+                        await launchUrlString(kGithub);
                       },
                     ),
                     CardSocialMedia(
                       label: "Email",
                       onTap: () async {
-                        await launch(kEmail);
+                        await launchUrlString(kEmail);
                       },
                     ),
                     CardSocialMedia(
                       label: "Facebook",
                       onTap: () async {
-                        await launch(kFace);
+                        await launchUrlString(kFace);
                       },
                     ),
                     CardSocialMedia(
                       label: "Instagram",
                       onTap: () async {
-                        await launch(kInsta);
+                        await launchUrlString(kInsta);
                       },
                     ),
                   ],
@@ -456,7 +457,7 @@ class CardBottomBar extends StatelessWidget {
 }
 
 class CardSocialMedia extends StatefulWidget {
-  const CardSocialMedia({Key key, @required this.label, @required this.onTap})
+  const CardSocialMedia({Key? key, required this.label, required this.onTap})
       : super(key: key);
   final String label;
   final VoidCallback onTap;

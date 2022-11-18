@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
 class CardBarHome extends StatelessWidget {
-  const CardBarHome({Key key, @required this.onChanged}) : super(key: key);
+  const CardBarHome({Key? key, required this.onChanged}) : super(key: key);
 
   final ValueChanged<int> onChanged;
 
@@ -133,7 +133,7 @@ class CardBarHome extends StatelessWidget {
 }
 
 class CardAvatar extends StatelessWidget {
-  const CardAvatar({Key key}) : super(key: key);
+  const CardAvatar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +216,7 @@ class CardAvatar extends StatelessWidget {
 ///Animated Card
 
 class CardProfile extends StatefulWidget {
-  const CardProfile({Key key}) : super(key: key);
+  const CardProfile({Key? key}) : super(key: key);
 
   @override
   State<CardProfile> createState() => _CardProfileState();
@@ -226,7 +226,7 @@ class _CardProfileState extends State<CardProfile> {
   final Duration duration = const Duration(milliseconds: 2000);
 
   bool _isAnimated = false;
-  Timer _timer;
+  late Timer _timer;
   @override
   void initState() {
     super.initState();
@@ -260,7 +260,7 @@ class _CardProfileState extends State<CardProfile> {
             left: 25.w,
             child: CardAnimateTile(
               label: "Azul Mouàd",
-              hint: "Hi! I\'m",
+              hint: "Hi! I'm",
               sizeText: 4.5.sp,
               isHi: true,
             ),
@@ -296,19 +296,19 @@ class _CardProfileState extends State<CardProfile> {
 
 ///circle
 class AnimatedCard extends StatefulWidget {
-  const AnimatedCard({Key key}) : super(key: key);
+  const AnimatedCard({Key? key}) : super(key: key);
 
   @override
-  _AnimatedCardState createState() => _AnimatedCardState();
+  AnimatedCardState createState() => AnimatedCardState();
 }
 
-class _AnimatedCardState extends State<AnimatedCard> {
+class AnimatedCardState extends State<AnimatedCard> {
   List<Color> colorList = [
     // Color(0xFFa5fecb),
-    Color(0xFF4bc0c8),
-    Color(0xFFfeac5e),
-    Color(0xFFc779d0),
-    Color(0xFF20bdff),
+    const Color(0xFF4bc0c8),
+    const Color(0xFFfeac5e),
+    const Color(0xFFc779d0),
+    const Color(0xFF20bdff),
   ];
   List<Alignment> alignmentList = [
     Alignment.bottomLeft,
@@ -317,8 +317,8 @@ class _AnimatedCardState extends State<AnimatedCard> {
     Alignment.topLeft,
   ];
   int index = 0;
-  Color bottomColor = Color(0xFFfeac5e);
-  Color topColor = Color(0xFFc779d0);
+  Color bottomColor = const Color(0xFFfeac5e);
+  Color topColor = const Color(0xFFc779d0);
   Alignment begin = Alignment.bottomLeft;
   Alignment end = Alignment.topRight;
 
@@ -326,9 +326,9 @@ class _AnimatedCardState extends State<AnimatedCard> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(milliseconds: 300)).then((value) {
+    Future.delayed(const Duration(milliseconds: 300)).then((value) {
       setState(() {
-        bottomColor = Color(0xFF4bc0c8);
+        bottomColor = const Color(0xFF4bc0c8);
       });
     });
   }
@@ -372,10 +372,10 @@ class _AnimatedCardState extends State<AnimatedCard> {
 
 class CardAnimateTile extends StatelessWidget {
   const CardAnimateTile({
-    Key key,
-    @required this.label,
-    @required this.hint,
-    @required this.sizeText,
+    Key? key,
+    required this.label,
+    required this.hint,
+    required this.sizeText,
     this.color = Colors.black,
     this.isHi = false,
   }) : super(key: key);
@@ -442,7 +442,7 @@ class CardAnimateTile extends StatelessWidget {
 }
 
 class AnimatedTextCard extends StatefulWidget {
-  const AnimatedTextCard({Key key, @required this.label, @required this.size})
+  const AnimatedTextCard({Key? key, required this.label, required this.size})
       : super(key: key);
   final String label;
   final double size;
@@ -453,14 +453,14 @@ class AnimatedTextCard extends StatefulWidget {
 
 class _AnimatedTextCardState extends State<AnimatedTextCard>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _animation;
+  late AnimationController _animationController;
+  late Animation _animation;
 
   @override
   void initState() {
     super.initState();
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 6));
+        AnimationController(vsync: this, duration: const Duration(seconds: 6));
 
     _animation = Tween(begin: 0.0, end: 1.0).animate(_animationController)
       ..addListener(() {

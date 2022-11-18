@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
 class CardBarContact extends StatelessWidget {
-  const CardBarContact({Key key}) : super(key: key);
+  const CardBarContact({Key? key}) : super(key: key);
 
   goHome() => Get.back();
 
@@ -131,7 +131,7 @@ class CardBarContact extends StatelessWidget {
 }
 
 class CardAvatarContact extends StatelessWidget {
-  const CardAvatarContact({Key key}) : super(key: key);
+  const CardAvatarContact({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +158,7 @@ class CardAvatarContact extends StatelessWidget {
           ClipRRect(
               borderRadius: BorderRadius.circular(300),
               child: const AnimatedCard()),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(10),
             child: Image(
               image: AssetImage('assets/images/image_3.png'),

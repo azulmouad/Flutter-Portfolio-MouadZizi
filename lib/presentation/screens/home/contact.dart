@@ -1,7 +1,7 @@
 part of '../screens.dart';
 
 class ContactScreen extends StatefulWidget {
-  const ContactScreen({Key key}) : super(key: key);
+  const ContactScreen({Key? key}) : super(key: key);
 
   @override
   State<ContactScreen> createState() => _ContactScreenState();
@@ -43,7 +43,7 @@ class _ContactScreenState extends State<ContactScreen> {
                     const CardAvatarContact(),
                     InkWell(
                       onTap: () async {
-                        await launch(kEmail);
+                        await launchUrlString(kEmail);
                       },
                       child: Text(
                         'moad.devloper@gmail.com',
@@ -64,7 +64,7 @@ class _ContactScreenState extends State<ContactScreen> {
                             size: 10.sp,
                           ),
                           onPressed: () async {
-                            await launch(kInsta);
+                            await launchUrlString(kInsta);
                           },
                         ),
                         IconButton(
@@ -74,7 +74,7 @@ class _ContactScreenState extends State<ContactScreen> {
                             size: 10.sp,
                           ),
                           onPressed: () async {
-                            await launch(kFace);
+                            await launchUrlString(kFace);
                           },
                         ),
                         IconButton(
@@ -84,7 +84,7 @@ class _ContactScreenState extends State<ContactScreen> {
                             size: 10.sp,
                           ),
                           onPressed: () async {
-                            await launch(kCodeCanyon);
+                            await launchUrlString(kCodeCanyon);
                           },
                         ),
                       ],
