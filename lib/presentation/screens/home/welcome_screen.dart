@@ -21,6 +21,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    FlutterNativeSplash.remove();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final isMobile = Device.screenType == sizerr.ScreenType.mobile;
     return Scaffold(

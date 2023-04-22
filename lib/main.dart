@@ -4,8 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/helpers/colors.dart';
 import 'package:portfolio/presentation/screens/screens.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
 }
 
