@@ -13,6 +13,11 @@ const String kApp_6 =
 const String kApp_7 =
     "https://codecanyon.net/item/pitches-sport-application-ui-kit-livescore-livematches-news-videos-/38544804";
 
+const String kApp_8 =
+    "https://codecanyon.net/item/azul-iptv-xtream-multiple-formatflutter-appmobile-android-tv/42983771";
+const String kApp_9 =
+    "https://codecanyon.net/item/wify-iptv-mobile-xtream-player-multiple-format-ad-network/43878691";
+
 const String kGithub = "https://github.com/azulmouad/";
 const String kEmail = "mailto:moad.devloper@gmail.com";
 const String kFace = "https://web.facebook.com/mddzizi/";
